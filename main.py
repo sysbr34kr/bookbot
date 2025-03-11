@@ -1,5 +1,10 @@
+import sys
+
+if len(sys.argv) != 2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
 # Load book into code
-with open("books/frankenstein.txt") as f:
+with open(sys.argv[1]) as f:
     file_contents = f.read()
 
 # Counts how many words
@@ -31,7 +36,7 @@ def character_count():
     
     # Prints the list in a more organized manner
     for h in character_list:
-        print(f"The {h['char']} character was found {h['count']} times")
+        print(f"{h['char']}: {h['count']}")
 
 print("--- Begin Report ---")
 word_count()
